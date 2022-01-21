@@ -63,12 +63,22 @@ log "    PLATFORM:        $PLATFORM"
 log "Looking for system target managers and base programs..."
 
 if [ "$PLATFORM" = "Darwin" ]; then
-    log "Mac OS X detected. Looking for brew..."
+    log "Mac OS X detected"
 
+    log "Looking for homebrew..."
     if ! [ -x "$(command -v brew)" ]; then
         log "Homebrew missing. Installing homebrew..."
         /usr/bin/ruby -e \
             "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    log "Looking for Apple Command Line Tools..."
+    if ! [ -d "/Library/Developer/CommandLineTools" ]; then
+        APPLE_CMD_LINE_TOOLS_INSTALLING="yes"
+        log "Apple Command Line Tools missing. Installing..."
+        xcode-select --install
+    else
+        APPLE_CMD_LINE_TOOLS_INSTALLING="no"
     fi
 
     assure_installed_mac curl
@@ -149,4 +159,10 @@ else
     log "Akinizer deps are already installed"
 fi
 
-log "Akinizer is ready to rock! Run 'gulp' in the same directory as your Akinizer gulpfile."
+if [ "$APPLE_CMD_LINE_TOOLS_INSTALLING" = "yes" ]; then
+    log "WAIT! Akinizer bootstrapping is ALMOST complete. Apple Command Line Tools needs to finish installing, then you can run 'gulp' in the same directory as your Akinizer gulpfile."
+else
+    log "Akinizer bootstraping complete! Run 'gulp' in the same directory as your Akinizer gulpfile."
+fi
+
+cd examples/

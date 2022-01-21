@@ -1,6 +1,7 @@
 const { cosmiconfigSync } = require('cosmiconfig');
 const { name: moduleName } = require('../package.json');
 const { DEFAULT_CONFIGS } = require('./constants');
+const log = require('./log');
 
 /**
  * Return the config object from the config file (e.g., `.akinizerrc.js`)
@@ -17,12 +18,15 @@ const getConfig = (ccOpts) => {
     // result.isEmpty is true if there was nothing to parse in the config file.
     const result = explorerSync.search();
 
-    // If no config files are found, just return the default configs
-    if (!result) {
-        return DEFAULT_CONFIGS;
-    }
+    let configs = DEFAULT_CONFIGS;
 
-    return { ...DEFAULT_CONFIGS, ...result.config };
+    // If no config files are found, just return the default configs
+    if (!result) log.info('No config files found. Using defaults.');
+    else configs = { ...configs, ...result.configs };
+
+    log.info('Configuration:', { configs });
+
+    return configs;
 };
 
 module.exports = {
