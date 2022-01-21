@@ -61,11 +61,7 @@ const isPackageInstalled = (target) => {
     if (isLinux()) {
         cmd = `dpkg -s '${target.name}'`;
     } else if (isMac()) {
-        if (isGUI) {
-            cmd = `brew list --cask '${target.name}'`;
-        } else {
-            cmd = `brew list --versions '${target.name}'`;
-        }
+        cmd = `brew list --versions ${isGUI ? '--cask' : ''} '${target.name}'`;
     } else {
         throw new Error(
             `Verification for '${target.name}' failed: Unrecognized platform.`,

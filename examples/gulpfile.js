@@ -35,7 +35,7 @@ const verifyPrereqsPhase = definePhase(
         // Apply these options to all of this phase's packages
         targetOpts: {
             // This option verifies the command exists instead of verifying
-            // its target exists with the system target manager
+            // its target exists with the system package manager
             verifyCommandExists: true,
         },
 
@@ -97,24 +97,31 @@ const installPythonPhase = definePhase(
     ACTIONS.INSTALL_PACKAGES,
     [
         t('python3'),
-        t('python3-distutils', {
-            // Required for installing `pip`. Only needed on Linux
-            skipAction: () => !isLinux(),
-        }),
-        t('pip', {
-            actionCommands: [
-                'sudo curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py',
-                'sudo -H python3 /tmp/get-pip.py',
-            ],
-        }),
+
+        // Required for installing `pip` on Linux
+        t('python3-distutils', { skipAction: () => !isLinux() }),
+
+        // Pip is included with python on Mac, but needs to be installed
+        // separately on Linux. See https://docs.brew.sh/Homebrew-and-Python
+        !isLinux &&
+            t('pip-linux', {
+                actionCommands: [
+                    'sudo curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py',
+                    'sudo -H python3 /tmp/get-pip.py',
+                ],
+            }),
+
         t('pyenv', {
             actionCommands: ['curl https://pyenv.run | bash'],
             skipAction: () => fileExists(pyenvDir),
             skipActionMessage: () => `File exists: ${pyenvDir}`,
         }),
+
+        // Required for `yadm`
         t('envtpl', {
-            // Required for `yadm`
-            actionCommands: ['sudo -H pip install envtpl'],
+            actionCommands: isMac()
+                ? ['$(brew --prefix)/opt/python/libexec/bin/pip install envtpl']
+                : ['sudo -H pip install envtpl'],
         }),
     ],
 );
@@ -181,16 +188,13 @@ const installMacGuiAppsPhase =
         [
             'deluge',
             'google-chrome',
+            'homebrew/cask-drivers/logitech-options',
             'iterm2',
             'keepingyouawake',
             'spectacle',
             'visual-studio-code',
         ],
-        {
-            targetOpts: {
-                isGUI: true,
-            },
-        },
+        { targetOpts: { isGUI: true } },
     );
 
 const installDockerPhase = definePhase('installDocker', ACTIONS.RUN_PHASES, [
