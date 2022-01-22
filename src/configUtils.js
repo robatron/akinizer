@@ -22,7 +22,7 @@ const getConfig = (ccOpts) => {
 
     // If no config files are found, just return the default configs
     if (!result) log.info('No config files found. Using defaults.');
-    else configs = { ...configs, ...result.configs };
+    else configs = { ...configs, ...result.config };
 
     log.info('Configuration:', { configs });
 

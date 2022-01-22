@@ -148,9 +148,11 @@ describe('isPackageinstalled', () => {
                 const target = new Target('target', { isGUI: true });
                 const result = isPackageInstalled(target);
 
-                expect(exec).toBeCalledWith("brew list --cask 'target'");
+                expect(exec).toBeCalledWith(
+                    "brew list --versions --cask 'target'",
+                );
                 expect(log.info).toBeCalledWith(
-                    "Verifying target 'target' exists with `brew list --cask 'target'`...'",
+                    "Verifying target 'target' exists with `brew list --versions --cask 'target'`...'",
                 );
                 expect(result).toBe(true);
             });
