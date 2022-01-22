@@ -31,7 +31,7 @@
         "cosmiconfig": "^7.0.0",
         "gulp": "^4.0.2",
         "rimraf": "^3.0.2",
-        "shelljs": "^0.8.4",
+        "shelljs": "^0.8.5",
         "simple-git": "^2.21.0",
         "winston": "^3.3.3"
     }
