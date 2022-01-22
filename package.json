@@ -17,7 +17,7 @@
     "author": "Rob McGuire <robert.mcgui@gmail.com>",
     "license": "ISC",
     "devDependencies": {
-        "doctoc": "^1.4.0",
+        "doctoc": "^2.1.0",
         "eslint": "^7.11.0",
         "eslint-config-prettier": "^6.13.0",
         "eslint-plugin-jest": "^24.1.0",
@@ -31,7 +31,7 @@
         "cosmiconfig": "^7.0.0",
         "gulp": "^4.0.2",
         "rimraf": "^3.0.2",
-        "shelljs": "^0.8.4",
+        "shelljs": "^0.8.5",
         "simple-git": "^2.21.0",
         "winston": "^3.3.3"
     }
