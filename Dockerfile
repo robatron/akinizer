@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:21.10
 
 ARG AK_ROOT=/home/robmc/opt/akinizer
 
@@ -23,7 +23,6 @@ USER robmc
 RUN mkdir -p ${AK_ROOT}
 COPY --chown=robmc:robmc . ${AK_ROOT}
 WORKDIR ${AK_ROOT}
-RUN ls -lah
 RUN AK_INSTALL_ROOT=${AK_ROOT} AK_SKIP_CLONE=yes bash bootstrap.sh
 
 # Set interactive entrypoint conditions

@@ -12,8 +12,12 @@ const definePhase = (name, action, targets, phaseOpts = {}) => [
 
 // Helper function to create the root phase definition with required parameters
 // and structure.
-const defineRoot = (targets, parallel = false) => [
-    definePhase(PHASE_NAME_DEFAULT, ACTIONS.RUN_PHASES, targets, {
+const defineRoot = (
+    targets,
+    parallel = false,
+    phaseName = PHASE_NAME_DEFAULT,
+) => [
+    definePhase(phaseName, ACTIONS.RUN_PHASES, targets, {
         parallel,
     }),
 ];

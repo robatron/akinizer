@@ -7,7 +7,7 @@ defaults:
     shell: bash
 
 jobs:
-  cur-commit:
+  bootstrap-apply:
     strategy:
       fail-fast: true
       matrix:
@@ -19,15 +19,20 @@ jobs:
       - name: Bootstrap Akinizer from script
         run: curl -o- https://raw.githubusercontent.com/robatron/akinizer/$GITHUB_SHA/bootstrap.sh | AK_GIT_REF=$GITHUB_SHA bash
 
-      - name: Re-bootstrap non-destructively
-        run: curl -o- https://raw.githubusercontent.com/robatron/akinizer/$GITHUB_SHA/bootstrap.sh | AK_GIT_REF=$GITHUB_SHA bash
-
       - name: Apply Akinizer configs
         run: |
           cd $HOME/opt/akinizer/examples
           gulp
 
-  cur-commit-alt-install-dir:
+      - name: Re-bootstrap non-destructively
+        run: curl -o- https://raw.githubusercontent.com/robatron/akinizer/$GITHUB_SHA/bootstrap.sh | AK_GIT_REF=$GITHUB_SHA bash
+
+      - name: Re-apply non-destructively
+        run: |
+          cd $HOME/opt/akinizer/examples
+          gulp
+
+  bootstrap-apply-alt-install-dir:
     strategy:
       fail-fast: true
       matrix:
