@@ -4,12 +4,12 @@
     "description": "Custom provisioning utility",
     "main": "./src/index.js",
     "scripts": {
-        "build": "docker build --tag akinizer .",
-        "format": "prettier --write 'src/**/*.js'",
-        "lint": "eslint 'src/**/*.js'",
-        "shell": "docker run -it akinizer /bin/bash",
-        "start:base": "docker run -it ubuntu:20.04 /bin/bash",
-        "start": "docker run --volume $(pwd):/mnt/akinizer --interactive --tty akinizer /bin/bash",
+        "format": "prettier --write './**/*.js'",
+        "lint": "eslint './**/*.js'",
+        "sb:build": "docker build --tag akinizer .",
+        "sb:shell": "docker run -it akinizer /bin/bash",
+        "sb:runBase": "docker run -it ubuntu:$(cat Dockerfile | grep FROM | cut -d ':' -f 2) /bin/bash",
+        "sb": "docker run --volume $(pwd):/mnt/akinizer --interactive --tty akinizer /bin/bash",
         "test": "jest --coverage --verbose",
         "toc": "doctoc README.md",
         "watch": "jest --watch"
