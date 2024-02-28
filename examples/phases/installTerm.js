@@ -32,7 +32,7 @@ module.exports = definePhase('installTerm', ACTIONS.INSTALL_PACKAGES, [
             binDir: `${OMZ_DIR}/themes/`,
             binSymlink: 'spaceship.zsh-theme',
             cloneDir: SPACESHIP_THEME_DIR,
-            ref: 'c38183d654c978220ddf123c9bdb8e0d3ff7e455',
+            ref: 'be826cbe2bb11a0675dd71f548ff1396608da7ea',
             repoUrl: 'https://github.com/denysdovhan/spaceship-prompt.git',
         },
         skipAction: () => fileExists(SPACESHIP_THEME_DIR),
