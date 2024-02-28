@@ -41,7 +41,7 @@ describe('configUtils', () => {
         });
         expect(actual).toStrictEqual(expected);
         expect(actual).toMatchInlineSnapshot(`
-            Object {
+            {
               "binInstallDir": "foo",
               "gitCloneDir": "bar",
             }

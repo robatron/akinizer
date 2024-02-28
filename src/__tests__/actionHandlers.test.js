@@ -22,8 +22,8 @@ describe('actionHandlers', () => {
 
             expect(execJob).toHaveBeenCalledWith(defaultTarget);
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
-                Array [
-                  Array [
+                [
+                  [
                     "Executing job for 'target'...",
                   ],
                 ]
@@ -43,8 +43,8 @@ describe('actionHandlers', () => {
 
             expect(installPackage).toHaveBeenCalledWith(target);
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
-                Array [
-                  Array [
+                [
+                  [
                     "Forcing install of 'target'...",
                   ],
                 ]
@@ -69,11 +69,11 @@ describe('actionHandlers', () => {
 
             expect(installPackage).not.toHaveBeenCalled();
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
-                Array [
-                  Array [
+                [
+                  [
                     "Checking if target package 'target' is installed...",
                   ],
-                  Array [
+                  [
                     "Target package 'target' is already installed. Moving on...",
                   ],
                 ]
@@ -87,11 +87,11 @@ describe('actionHandlers', () => {
 
             expect(installPackage).toHaveBeenCalledWith(defaultTarget);
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
-                Array [
-                  Array [
+                [
+                  [
                     "Checking if target package 'target' is installed...",
                   ],
-                  Array [
+                  [
                     "Target package 'target' is not installed. Proceeding with installation...",
                   ],
                 ]
@@ -108,11 +108,11 @@ describe('actionHandlers', () => {
             action(defaultTarget);
 
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
-                Array [
-                  Array [
+                [
+                  [
                     "Verifying target package target is installed...",
                   ],
-                  Array [
+                  [
                     "Target package 'target' is installed. Moving on...",
                   ],
                 ]
@@ -128,8 +128,8 @@ describe('actionHandlers', () => {
                 `"Target package 'target' is not installed!"`,
             );
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
-                Array [
-                  Array [
+                [
+                  [
                     "Verifying target package target is installed...",
                   ],
                 ]

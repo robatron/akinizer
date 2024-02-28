@@ -34,6 +34,10 @@ module.exports = {
     // A list of reporter names that Jest uses when writing coverage reports
     coverageReporters: ['clover', 'json', 'lcov', 'text', 'text-summary'],
 
+    // Force jest to use a downgraded version of prettier
+    // See https://github.com/jestjs/jest/issues/14305
+    prettierPath: require.resolve('prettier-2'),
+
     // An object that configures minimum threshold enforcement for coverage results
     // coverageThreshold: undefined,
 

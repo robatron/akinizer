@@ -61,8 +61,8 @@ describe('createPackageFromDefTask', () => {
                 await taskFn();
 
                 expect(log.warn.mock.calls).toMatchInlineSnapshot(`
-                    Array [
-                      Array [
+                    [
+                      [
                         "Skipping action 'verify-packages' for target 'target-name'",
                       ],
                     ]
@@ -83,8 +83,8 @@ describe('createPackageFromDefTask', () => {
                 await taskFn();
 
                 expect(log.warn.mock.calls).toMatchInlineSnapshot(`
-                    Array [
-                      Array [
+                    [
+                      [
                         "Skipping action 'verify-packages' for target 'target-name': For reasons",
                       ],
                     ]

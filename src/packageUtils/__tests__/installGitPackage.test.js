@@ -85,8 +85,8 @@ describe('installGitPackage', () => {
             const testTarget = extendTestTarget({ ref: 'master' });
             await installGitPackage(testTarget);
             expect(log.warn.mock.calls).toMatchInlineSnapshot(`
-                Array [
-                  Array [
+                [
+                  [
                     "Using \`master\` as the \`ref\` is unsafe! Use a specific ref, e.g., a tag or commit.",
                   ],
                 ]
