@@ -29,7 +29,7 @@ module.exports = definePhase('installDotfiles', ACTIONS.RUN_PHASES, [
                 // Clone the actual dotfiles
                 t('clone', {
                     actionCommands: [
-                        `echo "👉 See ${dotfilesRepoUrl} for additional instructions"`,
+                        `echo "👉👉👉 See ${dotfilesRepoUrl} for additional instructions"`,
                         `${yadmBin} clone ${dotfilesRepoUrl}`,
                     ],
                 }),
@@ -39,16 +39,6 @@ module.exports = definePhase('installDotfiles', ACTIONS.RUN_PHASES, [
                     actionCommands: [
                         `${yadmBin} remote set-url origin ${dotfilesRepoUrlSSH}`,
                     ],
-                }),
-
-                // Render alt files
-                t('renderAlts', {
-                    actionCommands: [`${yadmBin} alt`],
-                }),
-
-                // Decrypt files
-                t('decrypt', {
-                    actionCommands: [`${yadmBin} decrypt`],
                 }),
             ],
             {
