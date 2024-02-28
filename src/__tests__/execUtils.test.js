@@ -99,7 +99,7 @@ describe('execJob', () => {
         execJob(target);
 
         target.actionArgs.actionCommands.forEach((cmd) => {
-            expect(exec).toBeCalledWith(cmd);
+            expect(exec).toHaveBeenCalledWith(cmd);
         });
     });
 });

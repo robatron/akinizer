@@ -18,7 +18,9 @@ describe('installPackage', () => {
 
         installPackage(target);
 
-        expect(execCommands).toBeCalledWith(target.actionArgs.actionCommands);
+        expect(execCommands).toHaveBeenCalledWith(
+            target.actionArgs.actionCommands,
+        );
         expect(log.info.mock.calls).toMatchInlineSnapshot(`
             Array [
               Array [
@@ -35,9 +37,9 @@ describe('installPackage', () => {
 
         installPackage(target);
 
-        expect(isLinux).toBeCalledTimes(1);
-        expect(isMac).toBeCalledTimes(0);
-        expect(execCommands).toBeCalledWith([
+        expect(isLinux).toHaveBeenCalledTimes(1);
+        expect(isMac).toHaveBeenCalledTimes(0);
+        expect(execCommands).toHaveBeenCalledWith([
             `sudo apt install -y ${target.name}`,
         ]);
     });
@@ -50,9 +52,11 @@ describe('installPackage', () => {
 
         installPackage(target);
 
-        expect(isLinux).toBeCalledTimes(1);
-        expect(isMac).toBeCalledTimes(1);
-        expect(execCommands).toBeCalledWith([`brew install ${target.name}`]);
+        expect(isLinux).toHaveBeenCalledTimes(1);
+        expect(isMac).toHaveBeenCalledTimes(1);
+        expect(execCommands).toHaveBeenCalledWith([
+            `brew install ${target.name}`,
+        ]);
     });
 
     it('installs with "brew cask" if on mac and isGUI is set', () => {
@@ -63,9 +67,9 @@ describe('installPackage', () => {
 
         installPackage(target);
 
-        expect(isLinux).toBeCalledTimes(1);
-        expect(isMac).toBeCalledTimes(1);
-        expect(execCommands).toBeCalledWith([
+        expect(isLinux).toHaveBeenCalledTimes(1);
+        expect(isMac).toHaveBeenCalledTimes(1);
+        expect(execCommands).toHaveBeenCalledWith([
             `brew install --cask ${target.name}`,
         ]);
     });
@@ -78,7 +82,7 @@ describe('installPackage', () => {
 
         installPackage(target);
 
-        expect(target.actionArgs.postInstall).toBeCalledWith(target);
+        expect(target.actionArgs.postInstall).toHaveBeenCalledWith(target);
         expect(log.info.mock.calls).toMatchInlineSnapshot(`
             Array [
               Array [
@@ -104,9 +108,9 @@ describe('installPackage', () => {
                 `"Cannot determine install command(s) for target 'tst-target'"`,
             );
 
-            expect(isLinux).toBeCalledTimes(1);
-            expect(isMac).toBeCalledTimes(1);
-            expect(execCommands).not.toBeCalled();
+            expect(isLinux).toHaveBeenCalledTimes(1);
+            expect(isMac).toHaveBeenCalledTimes(1);
+            expect(execCommands).not.toHaveBeenCalled();
         });
     });
 });

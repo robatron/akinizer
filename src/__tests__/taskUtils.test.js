@@ -100,7 +100,7 @@ describe('createPackageFromDefTask', () => {
 
             taskFn();
 
-            expect(actionHandlers[testPackage.action]).toBeCalledWith(
+            expect(actionHandlers[testPackage.action]).toHaveBeenCalledWith(
                 testPackage,
             );
         });

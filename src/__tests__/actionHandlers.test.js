@@ -20,7 +20,7 @@ describe('actionHandlers', () => {
         it('executes the target job', () => {
             actionHandlers[ACTIONS.EXECUTE_JOBS](defaultTarget);
 
-            expect(execJob).toBeCalledWith(defaultTarget);
+            expect(execJob).toHaveBeenCalledWith(defaultTarget);
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
                 Array [
                   Array [
@@ -41,7 +41,7 @@ describe('actionHandlers', () => {
 
             action(target);
 
-            expect(installPackage).toBeCalledWith(target);
+            expect(installPackage).toHaveBeenCalledWith(target);
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
                 Array [
                   Array [
@@ -59,7 +59,7 @@ describe('actionHandlers', () => {
 
             action(target);
 
-            expect(installGitPackage).toBeCalledWith(target);
+            expect(installGitPackage).toHaveBeenCalledWith(target);
         });
 
         it("skips target package installation if it's already installed", () => {
@@ -67,7 +67,7 @@ describe('actionHandlers', () => {
 
             action(defaultTarget);
 
-            expect(installPackage).not.toBeCalled();
+            expect(installPackage).not.toHaveBeenCalled();
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
                 Array [
                   Array [
@@ -85,7 +85,7 @@ describe('actionHandlers', () => {
 
             action(defaultTarget);
 
-            expect(installPackage).toBeCalledWith(defaultTarget);
+            expect(installPackage).toHaveBeenCalledWith(defaultTarget);
             expect(log.info.mock.calls).toMatchInlineSnapshot(`
                 Array [
                   Array [
