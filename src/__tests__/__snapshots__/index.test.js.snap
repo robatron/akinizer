@@ -1,50 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`createTaskTree builds a task tree from definition 1`] = `
-Object {
-  "default": Object {
+{
+  "default": {
     "asyncType": "series",
     "displayName": "default",
-    "tasks": Array [
-      Object {
+    "tasks": [
+      {
         "asyncType": "series",
         "displayName": "installPhase",
-        "tasks": Array [
+        "tasks": [
           "task-fn",
           "task-fn",
           "task-fn",
         ],
       },
-      Object {
+      {
         "asyncType": "series",
         "displayName": "runPhase",
-        "tasks": Array [
-          Object {
+        "tasks": [
+          {
             "asyncType": "series",
             "displayName": "runPhase:subInstallPhase",
-            "tasks": Array [
+            "tasks": [
               "task-fn",
               "task-fn",
               "task-fn",
             ],
           },
-          Object {
+          {
             "asyncType": "series",
             "displayName": "runPhase:subRunPhase",
-            "tasks": Array [
-              Object {
+            "tasks": [
+              {
                 "asyncType": "series",
                 "displayName": "runPhase:subRunPhase:subSubInstallPhase",
-                "tasks": Array [
+                "tasks": [
                   "task-fn",
                   "task-fn",
                   "task-fn",
                 ],
               },
-              Object {
+              {
                 "asyncType": "series",
                 "displayName": "runPhase:subRunPhase:subSubVerifyPhase",
-                "tasks": Array [
+                "tasks": [
                   "task-fn",
                   "task-fn",
                   "task-fn",
@@ -52,10 +52,10 @@ Object {
               },
             ],
           },
-          Object {
+          {
             "asyncType": "series",
             "displayName": "runPhase:subVerifyPhase",
-            "tasks": Array [
+            "tasks": [
               "task-fn",
               "task-fn",
               "task-fn",
@@ -63,10 +63,10 @@ Object {
           },
         ],
       },
-      Object {
+      {
         "asyncType": "parallel",
         "displayName": "verifyPhase",
-        "tasks": Array [
+        "tasks": [
           "task-fn",
           "task-fn",
           "task-fn",
@@ -75,10 +75,10 @@ Object {
       },
     ],
   },
-  "installPhase": Object {
+  "installPhase": {
     "asyncType": "series",
     "displayName": "installPhase",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",
@@ -87,36 +87,36 @@ Object {
   "installPhase:alpha": [Function],
   "installPhase:bravo": [Function],
   "installPhase:charlie": [Function],
-  "runPhase": Object {
+  "runPhase": {
     "asyncType": "series",
     "displayName": "runPhase",
-    "tasks": Array [
-      Object {
+    "tasks": [
+      {
         "asyncType": "series",
         "displayName": "runPhase:subInstallPhase",
-        "tasks": Array [
+        "tasks": [
           "task-fn",
           "task-fn",
           "task-fn",
         ],
       },
-      Object {
+      {
         "asyncType": "series",
         "displayName": "runPhase:subRunPhase",
-        "tasks": Array [
-          Object {
+        "tasks": [
+          {
             "asyncType": "series",
             "displayName": "runPhase:subRunPhase:subSubInstallPhase",
-            "tasks": Array [
+            "tasks": [
               "task-fn",
               "task-fn",
               "task-fn",
             ],
           },
-          Object {
+          {
             "asyncType": "series",
             "displayName": "runPhase:subRunPhase:subSubVerifyPhase",
-            "tasks": Array [
+            "tasks": [
               "task-fn",
               "task-fn",
               "task-fn",
@@ -124,10 +124,10 @@ Object {
           },
         ],
       },
-      Object {
+      {
         "asyncType": "series",
         "displayName": "runPhase:subVerifyPhase",
-        "tasks": Array [
+        "tasks": [
           "task-fn",
           "task-fn",
           "task-fn",
@@ -135,10 +135,10 @@ Object {
       },
     ],
   },
-  "runPhase:subInstallPhase": Object {
+  "runPhase:subInstallPhase": {
     "asyncType": "series",
     "displayName": "runPhase:subInstallPhase",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",
@@ -147,23 +147,23 @@ Object {
   "runPhase:subInstallPhase:delta": [Function],
   "runPhase:subInstallPhase:echo": [Function],
   "runPhase:subInstallPhase:foxtrot": [Function],
-  "runPhase:subRunPhase": Object {
+  "runPhase:subRunPhase": {
     "asyncType": "series",
     "displayName": "runPhase:subRunPhase",
-    "tasks": Array [
-      Object {
+    "tasks": [
+      {
         "asyncType": "series",
         "displayName": "runPhase:subRunPhase:subSubInstallPhase",
-        "tasks": Array [
+        "tasks": [
           "task-fn",
           "task-fn",
           "task-fn",
         ],
       },
-      Object {
+      {
         "asyncType": "series",
         "displayName": "runPhase:subRunPhase:subSubVerifyPhase",
-        "tasks": Array [
+        "tasks": [
           "task-fn",
           "task-fn",
           "task-fn",
@@ -171,10 +171,10 @@ Object {
       },
     ],
   },
-  "runPhase:subRunPhase:subSubInstallPhase": Object {
+  "runPhase:subRunPhase:subSubInstallPhase": {
     "asyncType": "series",
     "displayName": "runPhase:subRunPhase:subSubInstallPhase",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",
@@ -183,10 +183,10 @@ Object {
   "runPhase:subRunPhase:subSubInstallPhase:golf": [Function],
   "runPhase:subRunPhase:subSubInstallPhase:hotel": [Function],
   "runPhase:subRunPhase:subSubInstallPhase:india": [Function],
-  "runPhase:subRunPhase:subSubVerifyPhase": Object {
+  "runPhase:subRunPhase:subSubVerifyPhase": {
     "asyncType": "series",
     "displayName": "runPhase:subRunPhase:subSubVerifyPhase",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",
@@ -195,10 +195,10 @@ Object {
   "runPhase:subRunPhase:subSubVerifyPhase:juliett": [Function],
   "runPhase:subRunPhase:subSubVerifyPhase:kelo": [Function],
   "runPhase:subRunPhase:subSubVerifyPhase:lima": [Function],
-  "runPhase:subVerifyPhase": Object {
+  "runPhase:subVerifyPhase": {
     "asyncType": "series",
     "displayName": "runPhase:subVerifyPhase",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",
@@ -207,10 +207,10 @@ Object {
   "runPhase:subVerifyPhase:mike": [Function],
   "runPhase:subVerifyPhase:november": [Function],
   "runPhase:subVerifyPhase:oscar": [Function],
-  "verifyPhase": Object {
+  "verifyPhase": {
     "asyncType": "parallel",
     "displayName": "verifyPhase",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",

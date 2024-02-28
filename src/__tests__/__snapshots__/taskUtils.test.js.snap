@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`createPhaseTask creates tasks for INSTALL_PACKAGES action 1`] = `
-Object {
-  "testPhaseName": Object {
+{
+  "testPhaseName": {
     "asyncType": "series",
     "displayName": "testPhaseName",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",
@@ -18,24 +18,24 @@ Object {
 `;
 
 exports[`createPhaseTask creates tasks for RUN_PHASES action 1`] = `
-Object {
-  "testPhaseName": Object {
+{
+  "testPhaseName": {
     "asyncType": "series",
     "displayName": "testPhaseName",
-    "tasks": Array [
-      Object {
+    "tasks": [
+      {
         "asyncType": "series",
         "displayName": "testPhaseName:testPhaseName",
-        "tasks": Array [
+        "tasks": [
           "task-fn",
           "task-fn",
           "task-fn",
         ],
       },
-      Object {
+      {
         "asyncType": "series",
         "displayName": "testPhaseName:testPhaseName",
-        "tasks": Array [
+        "tasks": [
           "task-fn",
           "task-fn",
           "task-fn",
@@ -43,10 +43,10 @@ Object {
       },
     ],
   },
-  "testPhaseName:testPhaseName": Object {
+  "testPhaseName:testPhaseName": {
     "asyncType": "series",
     "displayName": "testPhaseName:testPhaseName",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",
@@ -59,11 +59,11 @@ Object {
 `;
 
 exports[`createPhaseTask creates tasks for VERIFY_PACKAGES action 1`] = `
-Object {
-  "testPhaseName": Object {
+{
+  "testPhaseName": {
     "asyncType": "series",
     "displayName": "testPhaseName",
-    "tasks": Array [
+    "tasks": [
       "task-fn",
       "task-fn",
       "task-fn",

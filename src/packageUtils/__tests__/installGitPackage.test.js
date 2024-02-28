@@ -85,8 +85,8 @@ describe('installGitPackage', () => {
             const testTarget = extendTestTarget({ ref: 'master' });
             await installGitPackage(testTarget);
             expect(log.warn.mock.calls).toMatchInlineSnapshot(`
-                Array [
-                  Array [
+                [
+                  [
                     "Using \`master\` as the \`ref\` is unsafe! Use a specific ref, e.g., a tag or commit.",
                   ],
                 ]
@@ -145,7 +145,7 @@ describe('installGitPackage', () => {
                 gitPackage: { binDir, binSymlink, cloneDir, ref, repoUrl },
             });
 
-            await expect(installGitPackage(tstTarget)).rejects.toThrowError(
+            await expect(installGitPackage(tstTarget)).rejects.toThrow(
                 /Error installing target.*file exists/gi,
             );
 
@@ -199,7 +199,7 @@ describe('installGitPackage', () => {
                 },
             });
 
-            await expect(installGitPackage(tstTarget)).rejects.toThrowError(
+            await expect(installGitPackage(tstTarget)).rejects.toThrow(
                 /bin symlink does not exist/gi,
             );
         });
@@ -220,7 +220,7 @@ describe('installGitPackage', () => {
 
             await installGitPackage(tstTarget);
 
-            expect(log.warn).toBeCalledWith(
+            expect(log.warn).toHaveBeenCalledWith(
                 expect.stringMatching(/error.*symlink exists/gi),
             );
         });
@@ -242,7 +242,7 @@ describe('installGitPackage', () => {
                 },
             });
 
-            await expect(installGitPackage(tstTarget)).rejects.toThrowError(
+            await expect(installGitPackage(tstTarget)).rejects.toThrow(
                 /error.*file exists/gi,
             );
         });
@@ -260,8 +260,10 @@ describe('installGitPackage', () => {
 
             await installGitPackage(tstTarget);
 
-            expect(tstTarget.actionArgs.postInstall).toBeCalledTimes(1);
-            expect(tstTarget.actionArgs.postInstall).toBeCalledWith(tstTarget);
+            expect(tstTarget.actionArgs.postInstall).toHaveBeenCalledTimes(1);
+            expect(tstTarget.actionArgs.postInstall).toHaveBeenCalledWith(
+                tstTarget,
+            );
         });
     });
 });

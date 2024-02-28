@@ -12,8 +12,8 @@ createTaskTree(
         require('./phases/installPython'),
         require('./phases/installTerm'),
         require('./phases/installDotfiles'),
-        require('./phases/installDocker'),
-        // require('./phases/installGUIApps')
+        // require('./phases/installDocker'),
+        require('./phases/installGUIApps'),
     ]),
     exports,
 );

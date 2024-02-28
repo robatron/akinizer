@@ -106,8 +106,8 @@ describe('isPackageinstalled', () => {
                 const target = new Target('target');
                 const result = isPackageInstalled(target);
 
-                expect(exec).toBeCalledWith("dpkg -s 'target'");
-                expect(log.info).toBeCalledWith(
+                expect(exec).toHaveBeenCalledWith("dpkg -s 'target'");
+                expect(log.info).toHaveBeenCalledWith(
                     "Verifying target 'target' exists with `dpkg -s 'target'`...'",
                 );
                 expect(result).toBe(true);
@@ -119,8 +119,8 @@ describe('isPackageinstalled', () => {
                 const target = new Target('target');
                 const result = isPackageInstalled(target);
 
-                expect(exec).toBeCalledWith("dpkg -s 'target'");
-                expect(log.info).toBeCalledWith(
+                expect(exec).toHaveBeenCalledWith("dpkg -s 'target'");
+                expect(log.info).toHaveBeenCalledWith(
                     "Verifying target 'target' exists with `dpkg -s 'target'`...'",
                 );
                 expect(result).toBe(false);
@@ -137,8 +137,10 @@ describe('isPackageinstalled', () => {
                 const target = new Target('target');
                 const result = isPackageInstalled(target);
 
-                expect(exec).toBeCalledWith("brew list --versions 'target'");
-                expect(log.info).toBeCalledWith(
+                expect(exec).toHaveBeenCalledWith(
+                    "brew list --versions 'target'",
+                );
+                expect(log.info).toHaveBeenCalledWith(
                     "Verifying target 'target' exists with `brew list --versions 'target'`...'",
                 );
                 expect(result).toBe(true);
@@ -148,10 +150,10 @@ describe('isPackageinstalled', () => {
                 const target = new Target('target', { isGUI: true });
                 const result = isPackageInstalled(target);
 
-                expect(exec).toBeCalledWith(
+                expect(exec).toHaveBeenCalledWith(
                     "brew list --versions --cask 'target'",
                 );
-                expect(log.info).toBeCalledWith(
+                expect(log.info).toHaveBeenCalledWith(
                     "Verifying target 'target' exists with `brew list --versions --cask 'target'`...'",
                 );
                 expect(result).toBe(true);
@@ -163,8 +165,10 @@ describe('isPackageinstalled', () => {
                 const target = new Target('target');
                 const result = isPackageInstalled(target);
 
-                expect(exec).toBeCalledWith("brew list --versions 'target'");
-                expect(log.info).toBeCalledWith(
+                expect(exec).toHaveBeenCalledWith(
+                    "brew list --versions 'target'",
+                );
+                expect(log.info).toHaveBeenCalledWith(
                     "Verifying target 'target' exists with `brew list --versions 'target'`...'",
                 );
                 expect(result).toBe(false);
