@@ -162,7 +162,8 @@ fi
 if [ "$APPLE_CMD_LINE_TOOLS_INSTALLING" = "yes" ]; then
     log "WAIT! Akinizer bootstrapping is ALMOST complete. Apple Command Line Tools needs to finish installing, then you can run 'gulp' in the same directory as your Akinizer gulpfile."
 else
-    log "Akinizer bootstraping complete! Run 'gulp' in the same directory as your Akinizer gulpfile."
+    log "Akinizer bootstraping complete! Run 'gulp' in the same directory as your Akinizer gulpfile:"
+    log ". $HOME/.nvm/nvm.sh && cd $AK_INSTALL_ROOT/examples/ && gulp"
 fi
 
 cd examples/
