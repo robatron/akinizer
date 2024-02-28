@@ -22,8 +22,8 @@ describe('installPackage', () => {
             target.actionArgs.actionCommands,
         );
         expect(log.info.mock.calls).toMatchInlineSnapshot(`
-            Array [
-              Array [
+            [
+              [
                 "Installing target 'tst-target'...",
               ],
             ]
@@ -84,11 +84,11 @@ describe('installPackage', () => {
 
         expect(target.actionArgs.postInstall).toHaveBeenCalledWith(target);
         expect(log.info.mock.calls).toMatchInlineSnapshot(`
-            Array [
-              Array [
+            [
+              [
                 "Installing target 'tst-target'...",
               ],
-              Array [
+              [
                 "Running post-install scripts for tst-target...",
               ],
             ]

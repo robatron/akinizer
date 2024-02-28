@@ -15,27 +15,27 @@ describe('execCommands', () => {
         execCommands(['a', 'b', 'c']);
 
         expect(log.info.mock.calls).toMatchInlineSnapshot(`
-            Array [
-              Array [
+            [
+              [
                 "Executing command: a",
               ],
-              Array [
+              [
                 "Executing command: b",
               ],
-              Array [
+              [
                 "Executing command: c",
               ],
             ]
         `);
         expect(exec.mock.calls).toMatchInlineSnapshot(`
-            Array [
-              Array [
+            [
+              [
                 "a",
               ],
-              Array [
+              [
                 "b",
               ],
-              Array [
+              [
                 "c",
               ],
             ]
@@ -48,19 +48,19 @@ describe('execCommands', () => {
         expect(() => {
             execCommands(['a', 'b', 'c']);
         }).toThrowErrorMatchingInlineSnapshot(
-            `"Command 'a' failed. Full command set: [\\"a\\",\\"b\\",\\"c\\"]"`,
+            `"Command 'a' failed. Full command set: ["a","b","c"]"`,
         );
 
         expect(log.info.mock.calls).toMatchInlineSnapshot(`
-            Array [
-              Array [
+            [
+              [
                 "Executing command: a",
               ],
             ]
         `);
         expect(exec.mock.calls).toMatchInlineSnapshot(`
-            Array [
-              Array [
+            [
+              [
                 "a",
               ],
             ]

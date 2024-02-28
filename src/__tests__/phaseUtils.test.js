@@ -71,16 +71,16 @@ describe('defineRoot', () => {
 describe('defineTarget', () => {
     it('defines a target with only a name', () => {
         expect(defineTarget('target')).toMatchInlineSnapshot(`
-            Array [
+            [
               "target",
-              Object {},
+              {},
             ]
         `);
     });
 
     it('supports optional target opts', () => {
         expect(defineTarget('target', 'args')).toMatchInlineSnapshot(`
-            Array [
+            [
               "target",
               "args",
             ]

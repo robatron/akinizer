@@ -23,7 +23,7 @@ describe('Target', () => {
         expect(new Target('target-name')).toMatchInlineSnapshot(`
             Target {
               "action": undefined,
-              "actionArgs": Object {},
+              "actionArgs": {},
               "command": "target-name",
               "name": "target-name",
             }
