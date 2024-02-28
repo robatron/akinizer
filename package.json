@@ -1,38 +1,38 @@
 {
-    "name": "akinizer",
-    "version": "1.0.0",
-    "description": "Custom provisioning utility",
-    "main": "./src/index.js",
-    "scripts": {
-        "format": "prettier --write './**/*.js'",
-        "lint": "eslint './**/*.js'",
-        "sb:build": "docker build --tag akinizer .",
-        "sb:shell": "docker run -it akinizer /bin/bash",
-        "sb:runBase": "docker run -it ubuntu:$(cat Dockerfile | grep FROM | cut -d ':' -f 2) /bin/bash",
-        "sb": "docker run --volume $(pwd):/mnt/akinizer --interactive --tty akinizer /bin/bash",
-        "test": "jest --coverage --verbose",
-        "toc": "doctoc README.md",
-        "watch": "jest --watch"
-    },
-    "author": "Rob McGuire <robert.mcgui@gmail.com>",
-    "license": "ISC",
-    "devDependencies": {
-        "doctoc": "^2.1.0",
-        "eslint": "^7.11.0",
-        "eslint-config-prettier": "^6.13.0",
-        "eslint-plugin-jest": "^24.1.0",
-        "gulp-cli": "^2.3.0",
-        "jest": "^26.4.2",
-        "prettier": "^2.1.2",
-        "uuid": "^8.3.1"
-    },
-    "dependencies": {
-        "command-exists": "^1.2.9",
-        "cosmiconfig": "^7.0.0",
-        "gulp": "^4.0.2",
-        "rimraf": "^3.0.2",
-        "shelljs": "^0.8.5",
-        "simple-git": "^2.21.0",
-        "winston": "^3.3.3"
-    }
+  "name": "akinizer",
+  "version": "1.0.0",
+  "description": "Custom provisioning utility",
+  "main": "./src/index.js",
+  "scripts": {
+    "format": "prettier --write './**/*.js'",
+    "lint": "eslint './**/*.js'",
+    "sb:build": "docker build --tag akinizer .",
+    "sb:shell": "docker run -it akinizer /bin/bash",
+    "sb:runBase": "docker run -it ubuntu:$(cat Dockerfile | grep FROM | cut -d ':' -f 2) /bin/bash",
+    "sb": "docker run --volume $(pwd):/mnt/akinizer --interactive --tty akinizer /bin/bash",
+    "test": "jest --coverage --verbose",
+    "toc": "doctoc README.md",
+    "watch": "jest --watch"
+  },
+  "author": "Rob McGuire <robert.mcgui@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "doctoc": "^2.1.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-jest": "^24.1.0",
+    "gulp-cli": "^2.3.0",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.2",
+    "uuid": "^8.3.1"
+  },
+  "dependencies": {
+    "command-exists": "^1.2.9",
+    "cosmiconfig": "^7.0.0",
+    "gulp": "^4.0.2",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "simple-git": "^2.21.0",
+    "winston": "^3.3.3"
+  }
 }
