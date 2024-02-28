@@ -13,7 +13,7 @@ createTaskTree(
         require('./phases/installTerm'),
         require('./phases/installDotfiles'),
         // require('./phases/installDocker'),
-        require('./phases/installGUIApps')
+        require('./phases/installGUIApps'),
     ]),
     exports,
 );

@@ -8,12 +8,8 @@ const { isLinux, isMac } = require('../platformUtils');
 
 // Return if a target is installed or not
 const isPackageInstalled = (target) => {
-    const {
-        gitPackage,
-        actionCommands,
-        isGUI,
-        verifyCommandExists,
-    } = target.actionArgs;
+    const { gitPackage, actionCommands, isGUI, verifyCommandExists } =
+        target.actionArgs;
 
     // If this is a git target, check if its cloned, and its binaries exist
     if (gitPackage) {
