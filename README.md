@@ -103,11 +103,15 @@ info: Target package 'cowsay' is already installed. Moving on...
 To install or update Akinizer, you should run the [bootstrap.sh script](./bootstrap.sh) which assures required programs are installed (e.g., `git`, `node.js`), downloads or updates Akinizer, and installs its dependencies. Review the script, then either download and run the script manually, or use the following cURL or Wget commands:
 
 ```sh
-curl -o- https://raw.githubusercontent.com/robatron/akinizer/master/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/robatron/akinizer/master/bootstrap.sh \
+    -o /tmp/akinizer-bootstrap.sh && \
+    bash /tmp/akinizer-bootstrap.sh
 ```
 
 ```sh
-wget -qO- https://raw.githubusercontent.com/robatron/akinizer/master/bootstrap.sh | bash
+wget -qO /tmp/akinizer-bootstrap.sh \
+    https://raw.githubusercontent.com/robatron/akinizer/master/bootstrap.sh && \
+    bash /tmp/akinizer-bootstrap.sh
 ```
 
 ### Script options
