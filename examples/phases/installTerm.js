@@ -7,7 +7,6 @@ const {
     defineTarget: t,
     getConfig,
     fileExists,
-    isMac,
 } = require('../../src');
 
 // Grab optional configuration from the `.akinizerrc.js` file
@@ -21,6 +20,8 @@ module.exports = definePhase('installTerm', ACTIONS.INSTALL_PACKAGES, [
     t('zsh'),
     t('oh-my-zsh', {
         actionCommands: [
+            // Download the install script first so we can pass the RUNZSH=no
+            // flag to disable interactive prompt (which blocks script)
             `curl https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o /tmp/omzshinstall.sh`,
             `RUNZSH=no sh /tmp/omzshinstall.sh`,
         ],
@@ -32,7 +33,7 @@ module.exports = definePhase('installTerm', ACTIONS.INSTALL_PACKAGES, [
             binDir: `${OMZ_DIR}/themes/`,
             binSymlink: 'spaceship.zsh-theme',
             cloneDir: SPACESHIP_THEME_DIR,
-            ref: 'be826cbe2bb11a0675dd71f548ff1396608da7ea',
+            ref: 'e498b1381df3a122af107b61f5cc8f3ced93ee69',
             repoUrl: 'https://github.com/denysdovhan/spaceship-prompt.git',
         },
         skipAction: () => fileExists(SPACESHIP_THEME_DIR),
@@ -41,7 +42,7 @@ module.exports = definePhase('installTerm', ACTIONS.INSTALL_PACKAGES, [
     t('powerline', {
         gitPackage: {
             cloneDir: POWERLINE_DIR,
-            ref: 'e80e3eba9091dac0655a0a77472e10f53e754bb0',
+            ref: 'a029626780dd4af32f15a3e708a5b00528c22f1d',
             repoUrl: 'https://github.com/powerline/fonts.git',
         },
         postInstall: () => {
@@ -61,9 +62,9 @@ module.exports = definePhase('installTerm', ACTIONS.INSTALL_PACKAGES, [
         skipActionMessage: () => `File exists: ${POWERLINE_DIR}`,
     }),
 
-    t('tmux'),
-    t('reattach-to-user-namespace', {
-        // Mac only. Required for tmux to interface w/ OS X clipboard, etc.
-        skipAction: () => !isMac(),
-    }),
+    // t('tmux'),
+    // t('reattach-to-user-namespace', {
+    //     // Mac only. Required for tmux to interface w/ OS X clipboard, etc.
+    //     skipAction: () => !isMac(),
+    // }),
 ]);
