@@ -1,6 +1,6 @@
 name: "E2E tests: Bootstrap / apply"
 
-on: push
+on: workflow_dispatch
 
 defaults:
   run:
