@@ -35,7 +35,7 @@ module.exports = definePhase('installDotfiles', ACTIONS.RUN_PHASES, [
                 }),
 
                 // Swap the https url for SSH
-                t('configure', {
+                t('setSSHRemoteUrl', {
                     actionCommands: [
                         `${yadmBin} remote set-url origin ${dotfilesRepoUrlSSH}`,
                     ],

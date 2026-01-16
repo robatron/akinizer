@@ -7,7 +7,7 @@ module.exports = definePhase(
         // 'deluge',
         // 'google-chrome',
         // 'homebrew/cask-drivers/logitech-options',
-        // 'iterm2',
+        'iterm2',
 
         // Prevent the Mac from sleeping
         'keepingyouawake',

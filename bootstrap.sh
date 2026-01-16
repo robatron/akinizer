@@ -83,6 +83,7 @@ if [ "$PLATFORM" = "Darwin" ]; then
 
     assure_installed_mac curl
     assure_installed_mac git
+    assure_installed_mac fnm
 
 elif [ "$PLATFORM" = "Linux" ]; then
     log "Linux detected. Looking for apt..."
@@ -100,23 +101,12 @@ fi
 # Bootstrap Node.js
 # ------------------------------------------------------------------------------
 
-log "Assuring nvm installed..."
-export NVM_DIR="$HOME/.nvm"
-if [ ! -d $NVM_DIR ]; then
-    log "Nvm not installed. Installing..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-fi
-
-log "Assuring nvm loaded..."
-if ! [ -x "$(command -v nvm)" ]; then
-    log "Nvm not loaded. Loading..."
-    . "$NVM_DIR/nvm.sh"
-fi
-
-log "Assuring node installed..."
+log "Assuring Node.js installed..."
 if ! [ -x "$(command -v node)" ]; then
-    log "Node not installed. Installing latest LTS version and latest npm..."
-    nvm install --lts --latest-npm
+    log "Node.js not installed. Installing fnm and latest Node.js LTS version..."
+    eval "$(fnm env)"
+    fnm install --lts
+    fnm use lts-latest
 fi
 
 log "Assuring gulp installed globally..."
@@ -128,8 +118,6 @@ fi
 # ------------------------------------------------------------------------------
 # Install / update Akinizer itself
 # ------------------------------------------------------------------------------
-
-# TODO: Publish and install via NPM
 
 if ! [ $AK_SKIP_CLONE = yes ]; then
     log "Downloading Akinizer..."
@@ -163,7 +151,7 @@ if [ "$APPLE_CMD_LINE_TOOLS_INSTALLING" = "yes" ]; then
     log "WAIT! Akinizer bootstrapping is ALMOST complete. Apple Command Line Tools needs to finish installing, then you can run 'gulp' in the same directory as your Akinizer gulpfile."
 else
     log "Akinizer bootstraping complete! Run 'gulp' in the same directory as your Akinizer gulpfile:"
-    log ". $HOME/.nvm/nvm.sh && cd $AK_INSTALL_ROOT/examples/ && gulp"
+    log "eval $(fnm env) && cd $AK_INSTALL_ROOT/examples/ && gulp"
 fi
 
 cd examples/

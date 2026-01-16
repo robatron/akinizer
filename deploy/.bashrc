@@ -14,8 +14,8 @@ function sync () {
 }
 sync
 
-# Load NVM
-. ~/.nvm/nvm.sh
+# Activate fnm
+eval "$(fnm env)"
 
 cd $AK_EXAMPLES
 

@@ -19,7 +19,7 @@ module.exports = definePhase('installUtils', ACTIONS.RUN_PHASES, [
         'jq',
         'vim',
 
-        // Getting nvm to work in all contexts (e.g., in the vscode debugger or
+        // Getting fnm to work in all contexts (e.g., in the vscode debugger or
         // within vscode extensions) is a giant pain, so let's install node.js
         // at the system level as a fallback.
         'nodejs',
