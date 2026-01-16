@@ -37,7 +37,12 @@ function assure_installed_mac() {
     log "Looking for $1..."
     if ! [ -x "$(command -v $1)" ]; then
         log "'$1' not installed. Attempting to install..."
-        brew install $1
+        # Avoid corrupting piped script output; direct brew output to the TTY.
+        if [ -w /dev/tty ]; then
+            brew install "$1" >/dev/tty 2>&1
+        else
+            brew install "$1"
+        fi
     fi
 }
 
